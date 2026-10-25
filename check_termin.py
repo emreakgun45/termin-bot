@@ -22,6 +22,8 @@ LOCATION_URL = f"{BASE}/location?mdt=127&select_cnc=1&cnc-1952=1"  # Umschreibun
 # Aktueller Termin – alles davor ist interessant (Format TT.MM.JJJJ)
 AKTUELLER_TERMIN = os.environ.get("AKTUELLER_TERMIN", "10.12.2026")
 NTFY_TOPIC = os.environ.get("NTFY_TOPIC", "")
+# Persönlicher Änderungslink aus der Bestätigungs-Mail (als GitHub-Secret!)
+AENDERUNGS_LINK = os.environ.get("AENDERUNGS_LINK", "").strip() or START_URL
 
 HEADERS = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
@@ -58,7 +60,7 @@ def notify(title, message, priority="high"):
             "Title": title.encode("utf-8").decode("latin-1", errors="ignore"),
             "Priority": priority,
             "Tags": "car",
-            "Click": START_URL,
+            "Click": AENDERUNGS_LINK,
         },
         method="POST",
     )
