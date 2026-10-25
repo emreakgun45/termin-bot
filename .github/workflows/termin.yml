@@ -17,5 +17,6 @@ jobs:
       - name: Termin pruefen
         env:
           NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
+          AENDERUNGS_LINK: ${{ secrets.AENDERUNGS_LINK }}
           AKTUELLER_TERMIN: "10.12.2026"
         run: python check_termin.py
