@@ -49,7 +49,7 @@ def naechster_termin(page_html):
     return (m.group(1), m.group(2) or ""), text
 
 
-def notify(title, message, priority="high"):
+def notify(title, message, priority="max"):
     if not NTFY_TOPIC:
         print("Kein NTFY_TOPIC gesetzt – keine Push-Nachricht gesendet.")
         return
