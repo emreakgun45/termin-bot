@@ -2,7 +2,7 @@ name: Termin-Waechter
 
 on:
   schedule:
-    - cron: "*/15 * * * *"   # alle 15 Minuten
+    - cron: "*/5 * * * *"    # alle 5 Minuten
   workflow_dispatch:          # manuell starten zum Testen
 
 jobs:
@@ -18,5 +18,5 @@ jobs:
         env:
           NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
           AENDERUNGS_LINK: ${{ secrets.AENDERUNGS_LINK }}
-          AKTUELLER_TERMIN: "25.11.2026"
+          AKTUELLER_TERMIN: "06.01.2027"
         run: python check_termin.py
